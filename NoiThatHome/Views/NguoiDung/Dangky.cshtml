@@ -1,0 +1,136 @@
+﻿<style type="text/css">
+    .formBoxxx {
+        background: url('../../Images/Nt.jpg') no-repeat;
+        background-size: cover;
+        width: 100%;
+        padding: 5%;
+    }
+        .formBoxxx .autherr {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            margin-left: auto;
+            margin-right: auto;
+/*            margin: 0 60% 0 40%;
+            padding: 5px 10px;*/
+            border-radius: 10px;
+            border: 1.5px solid black;
+        }
+
+        .formBoxxx input[type="submit"] {
+            background-color: blue;
+            padding: 8px 20px;
+            margin-top: -5px;
+            width: 100%;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+            .formBoxxx input[type="submit"]:focus {
+                background: orange;
+                color: black;
+            }
+    .autherr h2 {
+        color: forestgreen;
+        font-family: sans-serif;
+        padding-bottom: 25px;
+    }
+    .auth-form-texts {
+        color: black;
+        margin-top: 40px;
+    }
+    .auth-form_policy-link {
+        text-decoration: none;
+        color: blue;
+        font-weight: bold;
+    }
+</style>
+@{
+    ViewBag.Title = "Dangky";
+    Layout = "~/Views/Shared/_UserNoiThat.cshtml";
+}
+
+<div class="formBoxxx">
+    <div class="col l-12 m-12 c-12">
+        <div class="autherr">
+            <h2 style="text-align:center">Đăng ký</h2>
+            <table align="center">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <tr style="height:40px">
+                        <td align="right">
+                            Họ và tên : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextBox("HoTen") <br /> @ViewData["Loi1"]
+                            </span><br />
+                        </td>
+                    </tr>
+                    <tr style="height:40px">
+                        <td align="right">
+                            Tài khoản : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextBox("Taikhoan") <br /> @ViewData["Loi2"]
+                            </span><br />
+                        </td>
+                    </tr>
+                    <tr style="height:40px">
+                        <td align="right">
+                            Mật khẩu : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.Password("Matkhau") <br /> @ViewData["Loi3"]
+                            </span><br />
+                        </td>
+                    </tr>
+                    <tr style="height:40px">
+                        <td align="right">
+                            Nhập lại mật khẩu : &nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.Password("Nhaplaimatkhau") <br /> @ViewData["Loi4"]
+                            </span><br />
+                        </td>
+                    </tr>
+                    <tr style="height:40px">
+                        <td align="right">
+                            Email : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextBox("Email") <br /> @ViewData["Loi5"]
+                            </span><br />
+                        </td>
+                    </tr>
+                    <tr style="height:40px">
+                        <td align="right">
+                            Điện thoại : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextBox("Dienthoai") <br /> @ViewData["Loi6"]
+                            </span><br />
+                        </td>
+                    </tr>
+                    <tr style="height:40px">
+                        <td align="right">
+                            Địa chỉ : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextBox("Diachi") <br /> @ViewData["Loi7"]
+                            </span><br />
+                        </td>
+                    </tr>
+                    <tr style="height:40px">
+                        <td align="right">
+                            <a href="@Url.Action("Dangnhap","NguoiDung")" /> <br />
+                            <input type="submit" value="Đăng ký " />
+                        </td>
+                    </tr>
+                }
+            </table>
+            <div style="text-align:center">
+                <p class="auth-form-texts">Bạn đã có tài khoản ? <a href="@Url.Action("Dangnhap", "NguoiDung")" class="auth-form_policy-link">Đăng nhập</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+

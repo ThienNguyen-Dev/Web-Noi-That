@@ -1,0 +1,43 @@
+﻿@model NoiThatHome.Models.LIENHE
+
+@{
+    ViewBag.Title = "CTLH";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>CTLH</h2>
+
+<div>
+    <h4>LIENHE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLienHe }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

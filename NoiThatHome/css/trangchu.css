@@ -1,0 +1,156 @@
+
+.navbar{
+    background-color: midnightblue !important;
+}
+.navbar li a{
+    color: white !important;
+    text-decoration:none;
+}
+.navbar li a:hover{
+    color: orange !important;
+}
+.carousel-inner img{
+    width: 100%;
+}
+.social a {
+	font-size: 10px;/*1em = 16px*/
+	padding: 1px;/*1rem = 1 "font-size" */
+}
+.welcome hr {
+	border-top: 2px solid rgba(62,44,100, 0.6);
+	width: 95%;	
+	margin-bottom: 2rem;
+}
+
+footer .btn-1 {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #f1f1f1;
+    margin: 10px;
+    border-radius: 30%;
+    box-shadow: 0 5px 15px -5px #00000070;
+    color: #3498db;
+    overflow: hidden;
+    position: relative;
+}
+footer .btn-1 i {
+    line-height: 40px;
+    font-size: 26px;
+    transition: 0.2s linear;
+}
+footer .btn-1:hover i {
+    transform: scale(1.3);
+    color: #f1f1f1;
+}
+footer .btn-1::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: #3498db;
+    transform: rotate(45deg);
+    left: -110%;
+    top: 90%;
+}
+footer .btn-1:hover:before {
+    animation: aaa 0.7s 1;
+    top: -10%;
+    left: -10%;
+}
+
+footer .btn-2 {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #f1f1f1;
+    margin: 10px;
+    border-radius: 30%;
+    box-shadow: 0 5px 15px -5px #00000070;
+    color: orangered;
+    overflow: hidden;
+    position: relative;
+}
+footer .btn-2 i {
+    line-height: 40px;
+    font-size: 26px;
+    transition: 0.2s linear;
+}
+footer .btn-2:hover i {
+    transform: scale(1.3);
+    color: white;
+}
+footer .btn-2::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: orangered;
+    transform: rotate(45deg);
+    left: -110%;
+    top: 90%;
+}
+footer .btn-2:hover:before {
+    animation: aaa 0.7s 1;
+    top: -10%;
+    left: -10%;
+}
+
+
+footer .btn-3 {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #f1f1f1;
+    margin: 10px;
+    border-radius: 30%;
+    box-shadow: 0 5px 15px -5px #00000070;
+    color: red;
+    overflow: hidden;
+    position: relative;
+}
+footer .btn-3 i {
+    line-height: 40px;
+    font-size: 26px;
+    transition: 0.2s linear;
+}
+footer .btn-3:hover i {
+    transform: scale(1.3);
+    color: white;
+}
+footer .btn-3::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: red;
+    transform: rotate(45deg);
+    left: -110%;
+    top: 90%;
+}
+footer .btn-3:hover:before {
+    animation: aaa 0.7s 1;
+    top: -10%;
+    left: -10%;
+}
+
+@keyframes aaa {
+    0% {
+        top: -110%;
+        left: 90%;
+    }
+    50% {
+        top: 10%;
+        left: -30%;
+    }
+    100% {
+        top: -10%;
+        left: -10%;
+    }
+}
+
+
+/*ul li {
+    margin-right: 35px;
+    display: block;
+}*/

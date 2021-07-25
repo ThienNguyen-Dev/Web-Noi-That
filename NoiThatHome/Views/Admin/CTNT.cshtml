@@ -1,0 +1,83 @@
+﻿@model NoiThatHome.Models.NOITHAT
+
+@{
+    ViewBag.Title = "CTNT";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>CTNT</h2>
+
+<div>
+    <h4>NOITHAT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNoiThat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNoiThat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Giaban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giaban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anhbia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anhbia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaycapnhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaycapnhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soluongton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoaiSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoaiSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoaiPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoaiPhong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNoiThat }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,32 @@
+.row .list-group a{
+    text-align: center;
+}
+.item {
+    margin-top: 16px;
+    min-height: 380px;
+    line-height: 380px;
+    margin-bottom: 16px;
+    border: 1px solid #191970;
+}
+.item img{
+    max-width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+    
+}
+#text h1{
+    text-align: center;
+}
+hr{
+	border-top: 2px solid rgba(62,44,100, 0.6);
+	width: 95%;	
+	margin-bottom: 2rem;
+}

@@ -1,0 +1,107 @@
+﻿<style type="text/css">
+    .formBoxx {
+        background: url('../../Images/Nt.jpg') no-repeat;
+        background-size: cover;
+        width: 100%;
+        padding: 8% 0 8% 0;
+    }
+
+        .formBoxx .auther {
+            position: relative;
+            width: 400px;
+            height: 355px;
+            margin-left: auto;
+            margin-right: auto;
+/*            margin: 0 60% 0 40%;
+            padding: 5px 10px;*/
+            border-radius: 10px;
+            border: 1.5px solid black;
+        }
+
+    .formBoxx input[type="submit"] {
+        background-color: blue;
+        padding: 8px 20px;
+        margin-top: 4%;
+        width: 100%;
+        cursor: pointer;
+        background: black;
+        color: white;
+        font-size: 16px;
+        font-weight: 400;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+    }
+
+        .formBoxx input[type="submit"]:focus {
+            background: orange;
+            color: black;
+        }
+    .auther h2 {
+        color: forestgreen;
+        font-family: sans-serif;
+        padding-bottom: 16px;
+    }
+
+        
+
+        .auth-form-text {
+            color: black;
+            margin-top: 6%;
+        }
+
+    .auth-form_policy-link {
+        text-decoration: none;
+        color: blue;
+        font-weight: bold;
+    }
+</style>
+@{
+    ViewBag.Title = "Dangnhap";
+    Layout = "~/Views/Shared/_UserNoiThat.cshtml";
+}
+
+<div class="formBoxx">
+    <div class="col l-12 m-12 c-12">
+        <div class="auther">
+            <h2 style="text-align: center">Đăng nhập </h2>
+            <h5 style="color:red;text-align:center">@ViewBag.Thongbao</h5>
+            <table align="center">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <tr style="height:40px">
+                        <td align="right">
+                            Tài khoản : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextBox("Taikhoan") <br /> @ViewData["Loi1"]
+                            </span><br />
+                        </td>
+                    </tr>
+
+                    <tr style="height:40px">
+                        <td align="right">
+                            Mật khẩu : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.Password("Matkhau") <br /> @ViewData["Loi2"]
+                            </span><br />
+                        </td>
+                    </tr>
+
+                    <tr style="height:40px">
+                        <td align="right">
+                            <a href="@Url.Action("Trangchu","NoiThat")">
+                                <input type="submit" value="Đăng nhập " />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+            <div style="text-align:center">
+                <p class="auth-form-text">Bạn chưa có tài khoản? <a href="@Url.Action("Dangky", "NguoiDung")" class="auth-form_policy-link">Đăng ký</a> </p>
+                <a style="text-align:center" href="@Url.Action("Quenmatkhau", "NguoiDung")" class="auth-form_policy-link">Quên mật khẩu?</a>
+            </div>
+        </div>
+    </div>
+</div>
+

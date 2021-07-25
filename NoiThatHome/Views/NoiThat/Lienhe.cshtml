@@ -1,0 +1,106 @@
+﻿<style type="text/css">
+    .formBox {
+        background: url('../../Images/Nt.jpg') no-repeat;
+        background-size: cover;
+        width: 100%;
+        padding: 5%;
+    }
+    .formBox .autheer {
+        position: relative;
+        width: 350px;
+        height: 365px;
+        margin-left:auto;
+        margin-right:auto;
+/*        margin: 0 60% 0 40%;
+        padding: 5px 10px;*/
+        border-radius: 15px;
+        border: 1.5px solid black;
+    }
+
+    .formBox input[type="submit"] {
+        background-color: blue;
+        padding: 8px 20px;
+        margin-top: 5px;
+        width: 100%;
+        cursor: pointer;
+        color: white;
+        font-size: 16px;
+        font-weight: 400;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+    }
+
+    .formBox input[type="submit"]:focus {
+        background: orange;
+        color: black;
+    }
+
+    .autheer h2 {
+        color: forestgreen;
+        font-family: sans-serif;
+        padding-bottom: 25px;
+    }
+
+    .new-banner {
+        padding-top: 30px;
+/*        padding-left:10px;*/
+    }
+        
+</style>
+@{
+    ViewBag.Title = "Lienhe";
+    Layout = "~/Views/Shared/_UserNoiThat.cshtml";
+}
+
+<div class="formBox">
+    <div class="col l-12 m-12 c-12">
+        <div class="autheer">
+            <h4 style="color:red;text-align:center">@ViewBag.Thongbao</h4>
+            <h2 style="text-align:center">Hỗ trợ liên hệ </h2>
+            <table align="center">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <tr style="height:40px">
+                        <td align="left">
+                            Họ và tên :&emsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextBox("HoTen") <br /> @ViewData["Loi1"]
+                            </span><br />
+                        </td>
+                    </tr>
+
+                    <tr style="height:40px">
+                        <td align="left">
+                            Email :&emsp;&emsp;&emsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextBox("Email") <br /> @ViewData["Loi2"]
+                            </span><br />
+                        </td>
+                    </tr>
+
+                    <tr style="height:45px">
+                        <td align="left">
+                            Nội dung :&emsp;&nbsp;
+                            <span style="color:red;font-style:italic">
+                                @Html.TextArea("NoiDung") <br /> @ViewData["Loi3"]
+                            </span><br />
+                        </td>
+                    </tr>
+
+                    <tr style="height:40px">
+                        <td align="right">
+                            <input type="submit" value="Gửi" />
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="col l-12 m-12 c-12">
+        <div class="new-banner">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7626.103476562183!2d106.67786194731391!3d10.35926244239321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x52845aac899b2e93!2zQ-G7rWEgSMOgbmcgTuG7mWkgVGjhuqV0!5e0!3m2!1svi!2s!4v1624194969105!5m2!1svi!2s" width="100%" height="450" style="border:0; " allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>

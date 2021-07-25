@@ -1,0 +1,10 @@
+﻿@model IEnumerable<NoiThatHome.Models.LOAISP>
+
+<h3 style="text-align:center" class="lead">Loại Nội Thất</h3>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("Noithattheoloai", "NoiThat", new { id = item.MaLoaiSP })"class="list-group-item">@item.TenLoaiSP</a>
+    }
+</div>
+

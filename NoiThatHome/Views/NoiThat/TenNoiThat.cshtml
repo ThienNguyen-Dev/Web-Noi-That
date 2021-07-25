@@ -1,0 +1,101 @@
+﻿<style type="text/css">
+    #Themhang a {
+        clear: both;
+        background-color: midnightblue;
+        color: white;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        border: 1px solid #191970;
+    }
+        #Themhang a:hover {
+            background-color: gray;
+            color: white;
+        }
+/*    #Mua a {
+        clear: both;
+        background-color: midnightblue;
+        color: white;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #Mua a:hover {
+        background-color: gray;
+        color: white;
+    }*/
+</style>
+@{
+    ViewBag.Title = "TenNoiThat";
+    Layout = "~/Views/Shared/_UserNoiThat.cshtml";
+}
+<div class="grid wide">
+    <div class="row">
+        <div class="col l-3 m-6 c-12 ">
+
+            @Html.Action("Loaiphong", "NoiThat")
+            @Html.Action("Loai", "NoiThat")
+
+        </div>
+        <div class="col l-9 m-6 c-0 ">
+            <div id="slides" class="carousel slides" data-ride="carousel">
+                <ul class="carousel-indicators">
+                    <li data-target="#slides" data-slide-to="0" class="active"></li>
+                    <li data-target="#slides" data-slide-to="1"></li>
+                    <li data-target="#slides" data-slide-to="2"></li>
+                    <li data-target="#slides" data-slide-to="3"></li>
+                    <li data-target="#slides" data-slide-to="4"></li>
+                    <li data-target="#slides" data-slide-to="5"></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/Images/1.jpg">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="~/Images/2.jpg">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="~/Images/3.jpg">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="~/Images/4.jpg">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="~/Images/5.jpg">
+                    </div>
+                    <div class="carousel-item ">
+                        <img src="~/Images/6.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col l-12 m-12 c-12 ">
+            <div id="text">
+                <h1>Thông Tin Chi Tiết Nội Thất</h1>
+            </div><hr>
+        </div>
+        <div class="col l-12">
+            <div>
+                <div class="col l-8  m-12 c-12" style=" float:left; border: 1px solid #191970">  
+                    <img src="~/Images/@Model.Anhbia" style="width:100%"/>
+                </div>
+                <div class="col l-4  m-12 c-12" style="float:left; padding-left:25px">
+                    <h4 style="font-weight:bold;">@Model.TenNoiThat</h4>
+                    <p style="text-align:justify"><span style="font-weight:bold">Mô tả: </span>@Model.Mota</p>
+                    <p style="font-weight:bold">Giá bán: <span>@String.Format("{0:0,0}", Model.Giaban) VNĐ </span></p> <hr class="light-80" />
+                    <div id="Themhang" style="padding-right: 10px">
+                        <a href="@Url.Action("Themgiohang","Giohang",new{id=@Model.MaNoiThat, strURL=Request.Url.ToString()})" class="list-group-item">
+                            THÊM VÀO GIỎ HÀNG
+                        </a>
+                    </div> <br />
+                    @*<div id="Mua" style="padding-right: 10px">
+                        <a href="@Url.Action("Dathang","Giohang",new{id=@Model.MaNoiThat, strURL=Request.Url.ToString()})" class="list-group-item">
+                            BUY IT NOW
+                        </a>
+                    </div>*@
+                </div>
+            </div>        
+        </div>
+    </div>
+</div><br />

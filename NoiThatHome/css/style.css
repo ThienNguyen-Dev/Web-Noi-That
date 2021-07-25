@@ -1,0 +1,33 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: Tahoma;
+}
+
+.navbar{
+    background-color: midnightblue !important;
+}
+.navbar li a{
+    color: white !important;
+}
+.navbar li a:hover{
+    color: orange !important;
+}
+.fa-facebook {
+	color: #3b5998;
+}
+.fa-instagram {
+	color: #FF0000;
+}
+footer {
+	background-color: #3f3f3f;
+	color: #d5d5d5;
+}
+hr.light {
+	border-top: 1px solid #d5d5d5;
+	width: 75%;
+}
+.light-100 {
+	border-top: 1px solid #d5d5d5;
+	width: 100%;
+}

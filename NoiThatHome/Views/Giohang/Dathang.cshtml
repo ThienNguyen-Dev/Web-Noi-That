@@ -1,0 +1,131 @@
+﻿
+<style type="text/css">
+    .gio, tr {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .gio {
+        border-collapse: collapse;
+        width: 100%;
+        border-bottom-style: hidden;
+       
+    }
+    .clear {
+        clear:both;
+    }
+    .gio, td {
+/*        padding: 5px;*/
+    }
+    .dathang {
+        margin-left: 30%;
+        margin-bottom: 5%;
+    }
+    h2 {
+        margin-left: 30%;
+        margin-top:5%;; 
+    }
+ 
+   
+</style>
+@using NoiThatHome.Models;
+
+@{
+    ViewBag.Title = "Dathang";
+    Layout = "~/Views/Shared/_UserNoiThat.cshtml";
+}
+
+<div class="grid wide">
+    <div class="row sm-gutter">
+        <div class="col l-12 m-12 c-12 ">
+            <div id="text">
+                <h1>Thông Tin Đơn Hàng</h1>
+            </div><hr>
+            <table class="gio" align="center">
+                <tr style="text-align:center; font-weight:bold">
+                    <td>Mã hàng</td>
+                    <td>Tên nội thẩt</td>
+                    <td>Ảnh bìa</td>
+                    <td>Số lượng</td>
+                    <td>Đơn giá</td>
+                    <td>Thành tiền</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr style="text-align:center; font-weight:bold">
+                        <td>@item.iMaNoiThat</td>
+                        <td>@item.sTenNoiThat</td>
+                        <td><img src="~/Images/@item.sAnhBia" width="200" /></td>
+                        @using (Html.BeginForm("Capnhat", "GioHang", new { id = item.iMaNoiThat }))
+                        {
+                            <td>@item.iSoluong</td>
+                            <td>@String.Format("{0:0,0}", item.dDonggia)</td>
+                            <td>@String.Format("{0:0,0}", item.dThanhtien)</td>
+                        }
+                    </tr>
+                }
+                <tr style="font-weight:bold; text-align:right; color:red">
+                    <td colspan="5">Số lượng nội thất: @ViewBag.Tongsoluong</td>
+                    <td colspan="4">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ </td>
+                </tr>
+                <tr style="font-weight:bold; text-align:right; color:red">
+                    <td colspan="9"><a href="@Url.Action("GioHang","Giohang")">Quay lại giỏ hàng</a></td>
+                </tr>
+            </table>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+
+
+@{
+    KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
+}
+<div class="clear"></div>
+<h2 style="padding-left:250px">ĐỊA CHỈ NHẬN HÀNG </h2>
+<div class="dathang" style="padding-left:200px">
+    
+    <table @*class="col l-6 m-6 c-12"*@>
+        <tbody>
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <tr style="height:50px">
+                    <td>Họ tên khách hàng: </td>
+                    <td style="font-weight:bold">@kh.HoTen</td>
+                </tr>
+                <tr style="height:50px">
+                    <td>Email: </td>
+                    <td style="font-weight:bold">@kh.Email</td>
+                </tr>
+                <tr style="height:50px">
+                    <td>Địa chỉ người nhận:</td>
+                    <td style="font-weight:bold">@kh.Diachi</td>
+                </tr>
+                <tr style="height:50px">
+                    <td>Điện thoại: </td>
+                    <td style="font-weight:bold">@kh.DienthoaiKH</td>
+                </tr>
+                <tr style="height:50px">
+                    <td>Ngày đặt hàng: </td>
+                    <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+                </tr>
+                <tr style="height:50px">
+                    <td>Ngày giao hàng: </td>
+                    <td style="font-weight:bold">
+                        <input type="date" name="Ngaygiao" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Đồng ý đặt hàng" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="clear"></div>
+
+

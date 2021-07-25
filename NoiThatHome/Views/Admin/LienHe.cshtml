@@ -1,0 +1,46 @@
+﻿@model IEnumerable<NoiThatHome.Models.LIENHE>
+
+@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>LienHe</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Chi Tiết", "CTLH", new { id = item.MaLienHe }) |
+            @Html.ActionLink("Xóa", "Xoalienhe", new { id = item.MaLienHe })
+        </td>
+    </tr>
+}
+
+</table>

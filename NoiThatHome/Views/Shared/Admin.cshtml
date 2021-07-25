@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoubleP Home</title>
+    <!-- Import Boostrap css, js, font awesome here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/Admin.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Navigation-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="~/Images/your-logo.png" height="50" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarReponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarReponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href=@Url.Action("NOITHAT", "Admin")>Quản Lý Nội Thất</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href=@Url.Action("LoaiSP", "Admin")>Quản Lý Loại Nội Thất</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href=@Url.Action("LoaiPhong", "Admin")>Quản Lý Loại Phòng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href=@Url.Action("KhachHang", "Admin")>Quản Lý Khách Hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href=@Url.Action("LienHe", "Admin")>Quản Lý Phản Hồi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href=@Url.Action("DonHang", "Admin")>Quản Lý Đơn Hàng</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="clear"></div>
+    <!--Caroisel-->
+    @RenderBody()
+
+
+</body>
+</html>

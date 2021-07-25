@@ -1,0 +1,90 @@
+﻿<style type="text/css">
+    .gio, tr {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .gio {
+        border-collapse: collapse;
+        width: 100%;
+        border-bottom-style: hidden;
+    }
+
+    .gio, td {
+        /*        padding: 5px;*/
+    }
+
+    #DatHang a {
+        clear: both;
+        background-color: midnightblue;
+        color: white;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        margin-bottom: 200px;
+    }
+
+        #DatHang a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+
+@using NoiThatHome.Models
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_UserNoiThat.cshtml";
+}
+
+<div class="grid wide">
+    <div class="row sm-gutter">
+        <div class="col l-12 m-12 c-12 ">
+            <div id="text">
+                <h1>Thông Tin Giỏ Hàng</h1>
+            </div><hr>
+            <table class="gio" align="center">
+                <tr style="text-align:center; font-weight:bold">
+                    <td>Mã hàng</td>
+                    <td>Tên nội thẩt</td>
+                    <td>Ảnh bìa</td>
+                    <td>Số lượng</td>
+                    <td>Đơn giá</td>
+                    <td>Thành tiền</td>
+                    <td width="70px">Chi tiết</td>
+                    <td width="80px"> Xóa</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr style="text-align:center; font-weight:bold">
+                        <td>@item.iMaNoiThat</td>
+                        <td>@item.sTenNoiThat</td>
+                        <td><img src="~/Images/@item.sAnhBia" width="200" /></td>
+                        @using (Html.BeginForm("Capnhat", "GioHang", new { id = item.iMaNoiThat }))
+                        {
+                            <td><input style="width:70px; text-align:center" type="number" min="1" value="@item.iSoluong" name="txtSoluong" /></td>
+                            <td>@String.Format("{0:0,0}", item.dDonggia)</td>
+                            <td>@String.Format("{0:0,0}", item.dThanhtien)</td>
+                            <td width="70px"><a href="@Url.Action("TenNoiThat", "NoiThat", new { id = item.iMaNoiThat })">Chi tiết</a></td>
+                            <td width="80px"><a href="@Url.Action("XoagioHang", "GioHang", new { id = item.iMaNoiThat })">Xóa</a></td>
+                            <td width="80px"><input type="submit" value="Cập nhật" /></td>
+                        }
+                    </tr>
+                }
+                <tr style="font-weight:bold; text-align:right; color:red">
+                    <td colspan="5">Số lượng nội thất: @ViewBag.Tongsoluong</td>
+                    <td colspan="4">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ </td>
+                </tr>
+                <tr style="font-weight:bold; text-align:right; color:red">
+                    <td colspan="9"><a href="@Url.Action("Xoatatca","GioHang")">Xóa tất cả giỏ hàng</a></td>
+                </tr>
+            </table>
+            <div id="DatHang" style="float:right">
+                <a href="@Url.Action("Dathang","GioHang")" class="list-group-item">
+                    Đặt Hàng
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>

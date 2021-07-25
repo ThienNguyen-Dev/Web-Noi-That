@@ -1,0 +1,130 @@
+﻿@*@model IEnumerable<NoiThatHome.Models.NOITHAT>*@
+@using PagedList.Mvc;
+@using NoiThatHome.Models
+@model PagedList.PagedList<NoiThatHome.Models.NOITHAT>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "NOITHAT";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2 style="text-align:center; margin-top:3%">QUẢN LÝ NỘI THẤT</h2>
+
+<p>
+    <a href="@Url.Action("Themmoinoithat","Admin")">Thêm Mới</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenNoiThat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Giaban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Mota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Anhbia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Ngaycapnhat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Soluongton)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaLoaiSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaLoaiPhong)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNoiThat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+
+                <img src="@Url.Content("~/Images/"+item.Anhbia)" width="100" />
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAISP.TenLoaiSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAIPHONG.TenLoaiPhong)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaNoiThat", new { id = item.MaNoiThat }) |
+                @Html.ActionLink("Chi Tiết", "CTNT", new { id = item.MaNoiThat }) |
+                @Html.ActionLink("Xóa", "XoaNoiThat", new { id = item.MaNoiThat })
+            </td>
+        </tr>
+    }
+
+</table>
+@*Tạo Liên Kết Trang*@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("NOITHAT", new { page = page }))
+</div>
+<style>
+    .MenuTrang {
+        width: 400px;
+        margin: auto;
+        text-align: center;
+        
+    }
+
+    .pagination {
+        width: 400px;
+        margin-left: 100px;
+    }
+
+        .pagination a {
+            display: block;
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+            .pagination a.active {
+                background-color: #4CAF50;
+                color: blue;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: orange;
+            }
+</style>

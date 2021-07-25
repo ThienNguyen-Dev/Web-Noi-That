@@ -1,0 +1,27 @@
+﻿@model NoiThatHome.Models.LOAISP
+
+@{
+    ViewBag.Title = "CTLSP";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>CTLSP</h2>
+
+<div>
+    <h4>LOAISP</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoaiSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoaiSP)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLoaiSP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
